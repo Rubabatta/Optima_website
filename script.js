@@ -38,25 +38,53 @@ const revealGroup = (targets, trigger, options = {}) => {
             toggleActions: "play none none reverse"
         },
         y: 28,
+        scale: 0.98,
         opacity: 0,
+        filter: "blur(8px)",
         duration: 0.85,
         stagger: 0.12,
-        ease: "power3.out",
+        ease: "power4.out",
         force3D: true,
         ...options
     });
 };
 
-revealGroup(".services-header-area", ".services-cards");
-revealGroup(".service-card", ".cards-grid", { y: 32, duration: 0.85, stagger: 0.12 });
-revealGroup(".section-header", ".equipment-section", { y: 24, duration: 0.85 });
-revealGroup(".equip-card", ".equipment-grid-4col", { y: 30, duration: 0.85, stagger: 0.12 });
+const revealText = (targets, trigger) => {
+    revealGroup(targets, trigger, {
+        y: 22,
+        scale: 1,
+        duration: 0.9,
+        stagger: 0.08,
+        ease: "expo.out"
+    });
+};
+
+const revealCards = (targets, trigger, options = {}) => {
+    revealGroup(targets, trigger, {
+        y: 38,
+        scale: 0.94,
+        rotationX: 8,
+        transformOrigin: "50% 80%",
+        duration: 0.95,
+        stagger: 0.1,
+        ease: "back.out(1.35)",
+        ...options
+    });
+};
+
+revealText(".services-header-area > *", ".services-cards");
+revealCards(".service-card", ".cards-grid");
+revealText(".section-header > *", ".equipment-section");
+revealCards(".equip-card", ".equipment-grid-4col", { stagger: 0.08 });
 revealGroup(".why-left", ".why-choose-section", { x: -24, y: 0, duration: 0.85 });
 revealGroup(".why-right", ".why-choose-section", { x: 24, y: 0, duration: 0.85 });
-revealGroup(".feature-card", ".features-list", { y: 20, duration: 0.75, stagger: 0.1 });
-revealGroup(".faq-card", ".faq-section", { y: 20, duration: 0.85, stagger: 0.1 });
-revealGroup(".contact-copy, .application-form", ".contact-section", { y: 24, duration: 0.85, stagger: 0.12 });
-revealGroup(".footer-inner-grid > *", ".site-footer", { y: 28, duration: 0.85, stagger: 0.14 });
+revealCards(".feature-card", ".features-list", { y: 24, duration: 0.85 });
+revealCards(".pricing-highlight-box", ".why-choose-section", { y: 28, duration: 0.9 });
+revealText(".faq-header > *", ".faq-section");
+revealCards(".faq-card", ".faq-section", { y: 24, duration: 0.85 });
+revealText(".contact-copy > *", ".contact-section");
+revealCards(".contact-detail, .application-form", ".contact-section", { y: 26, stagger: 0.09 });
+revealCards(".footer-inner-grid > *", ".site-footer", { y: 28, duration: 0.85, stagger: 0.12 });
 
 document.querySelectorAll(".gs-reveal").forEach((element) => {
     gsap.fromTo(element, { opacity: 0, y: 24 }, {

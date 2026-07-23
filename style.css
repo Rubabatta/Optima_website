@@ -2329,7 +2329,11 @@ section { scroll-margin-top: 90px; }
     .hero-stats .stat-box {
         min-width: 0;
         flex: 1 1 0;
+        min-height: 76px;
         padding: 12px 6px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         text-align: center;
     }
 
@@ -2396,12 +2400,78 @@ section { scroll-margin-top: 90px; }
     }
 }
 
+@media (max-width: 580px) {
+    .container {
+        width: min(94%, 540px);
+    }
+
+    nav {
+        padding-right: 60px;
+    }
+
+    .hero-container {
+        gap: 24px;
+        padding-top: 88px;
+        padding-bottom: 64px;
+    }
+
+    .hero-buttons {
+        margin-bottom: 24px;
+    }
+
+    .hero-stats {
+        gap: 7px;
+        padding-inline: 0;
+    }
+
+    .hero-stats .stat-box {
+        min-height: 72px;
+        padding: 11px 5px;
+        border-radius: 12px;
+    }
+
+    .stat-box h2 {
+        font-size: 20px;
+    }
+
+    .stat-box span {
+        font-size: 9.5px;
+    }
+
+    .brand-showcase {
+        max-width: 330px;
+    }
+
+    .brand-image {
+        min-height: 196px;
+    }
+
+    .contact-container {
+        width: min(calc(100% - 24px), 536px);
+        max-width: 536px;
+        padding-inline: 0;
+    }
+
+    .application-form {
+        max-width: 100%;
+        padding: 24px 12px 20px;
+        border-radius: 16px;
+    }
+
+    .application-form input,
+    .application-form select {
+        height: 48px;
+        margin-bottom: 14px;
+    }
+}
+
 @media (max-width: 380px) {
     .hero-stats {
         gap: 6px;
     }
 
     .hero-stats .stat-box {
+        min-height: 68px;
         padding: 10px 4px;
     }
 
@@ -2411,5 +2481,62 @@ section { scroll-margin-top: 90px; }
 
     .stat-box span {
         font-size: 9px;
+    }
+}
+
+/* --- FINAL MOBILE HEADINGS + PREMIUM MOTION --- */
+.service-card,
+.equip-card,
+.feature-card,
+.faq-card,
+.pricing-highlight-box,
+.contact-detail,
+.application-form,
+.footer-inner-grid > * {
+    will-change: transform, opacity, filter;
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: clamp(24px, 7.4vw, 32px);
+        margin-bottom: 20px;
+    }
+
+    .offer-main-title,
+    .section-title-dark,
+    .section-title-white,
+    .contact-copy h2,
+    .faq-header h2,
+    .section-header h2 {
+        font-size: clamp(22px, 5.4vw, 32px);
+        line-height: 1.16;
+    }
+
+    .service-card h3,
+    .feature-text h3,
+    .equip-content h3,
+    .application-form h3,
+    .brand-content h3 {
+        font-size: max(15px, calc(1em - 6px));
+    }
+
+    .offer-label,
+    .mini-label,
+    .section-tag-orange,
+    .contact-label {
+        font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .equip-card,
+    .feature-card,
+    .faq-card,
+    .pricing-highlight-box,
+    .contact-detail,
+    .application-form,
+    .footer-inner-grid > * {
+        will-change: auto;
     }
 }
