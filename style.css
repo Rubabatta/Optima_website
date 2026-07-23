@@ -2540,3 +2540,213 @@ section { scroll-margin-top: 90px; }
         will-change: auto;
     }
 }
+
+/* --- FINAL PROFESSIONAL HEADER --- */
+header {
+    z-index: 80;
+    padding: 12px 0 0;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+header::before {
+    background: linear-gradient(180deg, rgba(2,6,23,.84), rgba(2,6,23,.48) 72%, transparent);
+    border-bottom: 0;
+    backdrop-filter: blur(18px);
+}
+
+header .container {
+    width: min(94%, 1240px);
+}
+
+nav {
+    min-height: 72px;
+    padding: 9px 12px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(8,18,36,.9), rgba(5,12,24,.72));
+    box-shadow: 0 18px 55px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.1);
+    backdrop-filter: blur(18px);
+}
+
+.logo {
+    gap: 12px;
+    min-width: 0;
+    padding: 4px 8px 4px 4px;
+    border-radius: 16px;
+}
+
+.logo:hover {
+    background: rgba(255,255,255,.045);
+}
+
+.logo img {
+    width: 60px;
+    height: 44px;
+    flex: 0 0 60px;
+    padding: 5px;
+    border: 1px solid rgba(250,204,21,.36);
+    border-radius: 14px;
+    background: radial-gradient(circle at 30% 20%, rgba(96,165,250,.2), transparent 34%), rgba(2,6,23,.86);
+    box-shadow: 0 10px 24px rgba(0,0,0,.28);
+}
+
+.logo-copy strong {
+    font-size: 15px;
+    letter-spacing: 1.25px;
+}
+
+.logo-copy small {
+    margin-top: 4px;
+    color: #facc15;
+    font-size: 7.5px;
+    letter-spacing: 1.45px;
+}
+
+.nav-panel {
+    gap: 14px;
+    min-width: 0;
+}
+
+.nav-menu {
+    gap: 6px;
+    padding: 5px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 999px;
+    background: rgba(255,255,255,.045);
+}
+
+.nav-menu a {
+    min-height: 38px;
+    padding: 9px 13px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    color: rgba(226,232,240,.88);
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+.nav-menu a:hover {
+    color: #07111f;
+    border-color: rgba(250,204,21,.3);
+    background: linear-gradient(135deg, #facc15, #f59e0b);
+    transform: translateY(-1px);
+}
+
+.nav-actions {
+    gap: 8px;
+}
+
+.nav-btn {
+    min-width: 0;
+    min-height: 42px;
+    padding: 10px 15px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 0 12px 24px rgba(250,204,21,.2);
+}
+
+.nav-btn-outline {
+    border-color: rgba(255,255,255,.14);
+    background: rgba(255,255,255,.055);
+    color: #f8fafc;
+}
+
+.nav-toggle {
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+}
+
+@media (max-width: 1180px) {
+    .nav-panel {
+        gap: 10px;
+    }
+
+    .nav-menu a {
+        padding-inline: 10px;
+        font-size: 12.5px;
+    }
+
+    .nav-btn {
+        padding-inline: 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        padding-top: 8px;
+    }
+
+    header .container {
+        width: min(94%, 580px);
+    }
+
+    nav {
+        min-height: 66px;
+        padding: 8px 62px 8px 10px;
+        border-radius: 18px;
+    }
+
+    .logo {
+        padding-right: 0;
+    }
+
+    .logo img {
+        width: 54px;
+        height: 40px;
+        flex-basis: 54px;
+    }
+
+    .logo-copy strong {
+        font-size: 13px;
+    }
+
+    .logo-copy small {
+        font-size: 6.5px;
+        letter-spacing: 1.1px;
+    }
+
+    .nav-panel {
+        top: calc(100% + 8px);
+        padding: 12px;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(8,18,36,.99), rgba(3,9,21,.99));
+    }
+
+    .nav-menu {
+        width: 100%;
+        gap: 8px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+    }
+
+    .nav-menu a {
+        min-height: 46px;
+        justify-content: flex-start;
+        padding: 12px 14px;
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: 13px;
+        background: rgba(255,255,255,.06);
+        color: #f8fafc;
+        font-size: 14px;
+    }
+
+    .nav-actions {
+        width: 100%;
+    }
+
+    .nav-btn {
+        min-height: 48px;
+        width: 100%;
+        border-radius: 13px;
+        font-size: 13px;
+    }
+}
