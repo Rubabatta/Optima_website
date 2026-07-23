@@ -56,6 +56,7 @@ revealGroup(".why-right", ".why-choose-section", { x: 24, y: 0, duration: 0.85 }
 revealGroup(".feature-card", ".features-list", { y: 20, duration: 0.75, stagger: 0.1 });
 revealGroup(".faq-card", ".faq-section", { y: 20, duration: 0.85, stagger: 0.1 });
 revealGroup(".contact-copy, .application-form", ".contact-section", { y: 24, duration: 0.85, stagger: 0.12 });
+revealGroup(".footer-inner-grid > *", ".site-footer", { y: 28, duration: 0.85, stagger: 0.14 });
 
 document.querySelectorAll(".gs-reveal").forEach((element) => {
     gsap.fromTo(element, { opacity: 0, y: 24 }, {
@@ -98,6 +99,52 @@ document.querySelectorAll(".equip-card").forEach((card) => {
 
 const applicationForm = document.querySelector("#application-form");
 const formStatus = document.querySelector(".form-status");
+
+const nav = document.querySelector("nav");
+const navToggle = document.querySelector(".nav-toggle");
+if (nav && navToggle) {
+    const closeMobileNav = () => {
+        nav.classList.remove("nav-open");
+        navToggle.classList.remove("active");
+        document.body.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", false);
+        navToggle.setAttribute("aria-label", "Open navigation");
+    };
+
+    navToggle.addEventListener("click", () => {
+        nav.classList.toggle("nav-open");
+        navToggle.classList.toggle("active");
+        document.body.classList.toggle("nav-open");
+        const isExpanded = navToggle.classList.contains("active");
+        navToggle.setAttribute("aria-expanded", isExpanded);
+        navToggle.setAttribute("aria-label", isExpanded ? "Close navigation" : "Open navigation");
+    });
+
+    document.querySelectorAll(".nav-menu a, .nav-actions a").forEach((link) => {
+        link.addEventListener("click", () => {
+            if (nav.classList.contains("nav-open")) {
+                closeMobileNav();
+            }
+        });
+    });
+
+    const backdrop = document.querySelector(".mobile-menu-backdrop");
+    if (backdrop) {
+        backdrop.addEventListener("click", closeMobileNav);
+    }
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && nav.classList.contains("nav-open")) {
+            closeMobileNav();
+        }
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 900 && nav.classList.contains("nav-open")) {
+            closeMobileNav();
+        }
+    });
+}
 
 if (applicationForm && formStatus) {
     applicationForm.addEventListener("submit", (event) => {
